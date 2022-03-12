@@ -23,7 +23,7 @@ func main() {
 
 	// 创建数据库连接
 	db, err := gorm.Open("mysql",
-		"root:unraveltheworld@tcp(120.79.17.230:3306)/micro?charset=utf8mb4&parseTime=true&loc=Local")
+		"root:unraveltheworld@tcp(120.79.17.230:3307)/micro?charset=utf8mb4&parseTime=true&loc=Local")
 	if err != nil {
 		fmt.Println(err)
 	}
