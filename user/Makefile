@@ -9,7 +9,7 @@ init:
 .PHONY: proto
 proto: # makefile中需要使用（shell pwd）才能识别
 	docker run --rm -v $(shell pwd):$(shell pwd) -w $(shell pwd) zhugeqing/protoc \
---go_out=. --micro_out=. -I ./ ./proto/user/*.proto
+--go_out=./proto/user --micro_out=./proto/user -I ./ ./proto/user/*.proto
 
 .PHONY: build
 build:
