@@ -6,22 +6,19 @@ init:
 	go install github.com/micro/micro/v3/cmd/protoc-gen-micro@latest
 	go install github.com/micro/micro/v3/cmd/protoc-gen-openapi@latest
 
-.PHONY: api
-api:
-	protoc --openapi_out=. --proto_path=. proto/user.proto
-
 .PHONY: proto
-proto:
-	protoc --proto_path=. --micro_out=. --go_out=:. proto/user.proto
-	
+proto: # makefile中需要使用（shell pwd）才能识别
+	docker run --rm -v $(shell pwd):$(shell pwd) -w $(shell pwd) zhugeqing/protoc \
+--go_out=./proto/user --micro_out=./proto/user -I ./ ./proto/user/*.proto
+
 .PHONY: build
 build:
-	go build -o user *.go
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o user *.go
 
 .PHONY: test
 test:
 	go test -v ./... -cover
 
-.PHONY: docker
-docker:
-	docker build . -t user:latest
+.PHONY: dockerBuild
+dockerBuild:
+	docker image  build -t user:latest .
