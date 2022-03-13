@@ -3,15 +3,15 @@ package main
 import (
 	"fmt"
 
-	"github.com/xing-you-ji/go-container-micro/category/domain/repository"
-
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mssql"
+	// 数据库驱动
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/micro/go-micro/v2"
 	log "github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/registry"
 	"github.com/micro/go-plugins/registry/consul/v2"
 	"github.com/xing-you-ji/go-container-micro/category/common"
+	"github.com/xing-you-ji/go-container-micro/category/domain/repository"
 	service2 "github.com/xing-you-ji/go-container-micro/category/domain/service"
 	"github.com/xing-you-ji/go-container-micro/category/handler"
 	category "github.com/xing-you-ji/go-container-micro/category/proto/category"
@@ -19,7 +19,7 @@ import (
 
 func main() {
 	// 配置中心
-	consulConfig, err := common.GetConsulConfig("127.0.0.1", 8500, "/micro/config")
+	consulConfig, err := common.GetConsulConfig("120.79.17.230", 8500, "/micro/config")
 	if err != nil {
 		log.Error(err)
 	}
@@ -43,7 +43,7 @@ func main() {
 
 	// 获取mysql配置，路径不带前缀
 	mysqlInfo := common.GetMysqlConfigFromConsul(consulConfig, "mysql")
-
+	fmt.Println(mysqlInfo)
 	// root:unraveltheworld@tcp(120.79.17.230:3307)/micro?charset=utf8mb4&parseTime=true&loc=Local
 	db, err := gorm.Open("mysql",
 		fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=true&loc=Local",
