@@ -5,13 +5,12 @@ import (
 
 	log "github.com/micro/go-micro/v2/logger"
 
-	category "category/proto/category"
+	category "github.com/xing-you-ji/go-container-micro/category/proto/category"
 )
 
 type Category struct{}
 
 // 这里生产实现服务方法
- 
 
 // Stream is a server side stream handler called via client.Stream or the generated client code
 func (e *Category) Stream(ctx context.Context, req *category.StreamingRequest, stream category.Category_StreamStream) error {
@@ -28,4 +27,3 @@ func (e *Category) Stream(ctx context.Context, req *category.StreamingRequest, s
 
 	return nil
 }
- 

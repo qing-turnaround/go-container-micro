@@ -1,7 +1,8 @@
 package repository
+
 import (
 	"github.com/jinzhu/gorm"
-	"category/domain/model"
+	"github.com/xing-you-ji/go-container-micro/category/domain/model"
 )
 type ICategoryRepository interface{
     InitTable() error

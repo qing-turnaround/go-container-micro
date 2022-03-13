@@ -1,12 +1,12 @@
 package main
 
 import (
-	log "github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2"
-	"category/handler"
-	"category/subscriber"
+	log "github.com/micro/go-micro/v2/logger"
+	"github.com/xing-you-ji/go-container-micro/category/handler"
+	"github.com/xing-you-ji/go-container-micro/category/subscriber"
 
-	category "category/proto/category"
+	category "github.com/xing-you-ji/go-container-micro/category/proto/category"
 )
 
 func main() {
