@@ -1,25 +1,32 @@
 package main
 
 import (
+	log "github.com/micro/go-micro/v2/logger"
+	"github.com/micro/go-micro/v2"
 	"category/handler"
-	pb "category/proto"
+	"category/subscriber"
 
-	"github.com/micro/micro/v3/service"
-	"github.com/micro/micro/v3/service/logger"
+	category "category/proto/category"
 )
 
 func main() {
-	// Create service
-	srv := service.New(
-		service.Name("category"),
-		service.Version("latest"),
+	// New Service
+	service := micro.NewService(
+		micro.Name("go.micro.service.category"),
+		micro.Version("latest"),
 	)
 
-	// Register handler
-	pb.RegisterCategoryHandler(srv.Server(), new(handler.Category))
+	// Initialise service
+	service.Init()
+
+	// Register Handler
+	category.RegisterCategoryHandler(service.Server(), new(handler.Category))
+
+	// Register Struct as Subscriber
+	micro.RegisterSubscriber("go.micro.service.category", service.Server(), new(subscriber.Category))
 
 	// Run service
-	if err := srv.Run(); err != nil {
-		logger.Fatal(err)
+	if err := service.Run(); err != nil {
+		log.Fatal(err)
 	}
 }

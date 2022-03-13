@@ -1,3 +1,3 @@
 FROM alpine
-ADD category /category
-ENTRYPOINT [ "/category" ]
+ADD category-service /category-service
+ENTRYPOINT [ "/category-service" ]

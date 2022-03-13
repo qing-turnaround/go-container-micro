@@ -3,19 +3,15 @@ package handler
 import (
 	"context"
 
-	log "github.com/micro/micro/v3/service/logger"
+	log "github.com/micro/go-micro/v2/logger"
 
-	category "category/proto"
+	category "category/proto/category"
 )
 
 type Category struct{}
 
-// Call is a single request handler called via client.Call or the generated client code
-func (e *Category) Call(ctx context.Context, req *category.Request, rsp *category.Response) error {
-	log.Info("Received Category.Call request")
-	rsp.Msg = "Hello " + req.Name
-	return nil
-}
+// 这里生产实现服务方法
+ 
 
 // Stream is a server side stream handler called via client.Stream or the generated client code
 func (e *Category) Stream(ctx context.Context, req *category.StreamingRequest, stream category.Category_StreamStream) error {
@@ -32,17 +28,4 @@ func (e *Category) Stream(ctx context.Context, req *category.StreamingRequest, s
 
 	return nil
 }
-
-// PingPong is a bidirectional stream handler called via client.Stream or the generated client code
-func (e *Category) PingPong(ctx context.Context, stream category.Category_PingPongStream) error {
-	for {
-		req, err := stream.Recv()
-		if err != nil {
-			return err
-		}
-		log.Infof("Got ping %v", req.Stroke)
-		if err := stream.Send(&category.Pong{Stroke: req.Stroke}); err != nil {
-			return err
-		}
-	}
-}
+ 
