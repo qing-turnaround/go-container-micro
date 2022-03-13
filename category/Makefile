@@ -8,7 +8,7 @@ init:
 .PHONY: proto
 proto:
 	docker run --rm -v $(shell pwd):$(shell pwd) -w $(shell pwd) zhugeqing/protoc \
---go_out=./proto/category --micro_out=./proto/category -I ./ ./proto/category/*.proto
+--go_out=./ --micro_out=./ -I ./ ./proto/category/*.proto
 
 .PHONY: build
 build: proto

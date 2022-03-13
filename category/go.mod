@@ -9,6 +9,7 @@ require (
 
 require (
 	github.com/BurntSushi/toml v0.3.1 // indirect
+	github.com/armon/go-metrics v0.0.0-20180917152333-f0300d1749da // indirect
 	github.com/bitly/go-simplejson v0.5.0 // indirect
 	github.com/coreos/etcd v3.3.18+incompatible // indirect
 	github.com/coreos/go-systemd v0.0.0-20190719114852-fd7a80b32e1f // indirect
@@ -24,16 +25,25 @@ require (
 	github.com/gogo/protobuf v1.2.1 // indirect
 	github.com/golang/protobuf v1.4.0 // indirect
 	github.com/google/uuid v1.1.1 // indirect
+	github.com/hashicorp/consul/api v1.3.0 // indirect
+	github.com/hashicorp/go-cleanhttp v0.5.1 // indirect
+	github.com/hashicorp/go-immutable-radix v1.0.0 // indirect
+	github.com/hashicorp/go-rootcerts v1.0.0 // indirect
+	github.com/hashicorp/golang-lru v0.5.3 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
+	github.com/hashicorp/serf v0.8.2 // indirect
 	github.com/hpcloud/tail v1.0.0 // indirect
 	github.com/imdario/mergo v0.3.9 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/kevinburke/ssh_config v0.0.0-20190725054713-01f96b0aa0cd // indirect
 	github.com/micro/cli/v2 v2.1.2 // indirect
+	github.com/micro/go-plugins/config/source/consul/v2 v2.9.1 // indirect
+	github.com/micro/go-plugins/registry/consul/v2 v2.9.1 // indirect
 	github.com/miekg/dns v1.1.27 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/hashstructure v1.0.0 // indirect
+	github.com/mitchellh/mapstructure v1.1.2 // indirect
 	github.com/nats-io/jwt v0.3.2 // indirect
 	github.com/nats-io/nats.go v1.9.2 // indirect
 	github.com/nats-io/nkeys v0.1.4 // indirect
