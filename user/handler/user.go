@@ -2,13 +2,14 @@ package handler
 
 import (
 	"context"
-	"github.com/xing-you-ji/go-container-micro/domain/model"
-	"github.com/xing-you-ji/go-container-micro/domain/service"
-	user "github.com/xing-you-ji/go-container-micro/proto/user"
+
+	"github.com/xing-you-ji/go-container-micro/user/domain/model"
+	"github.com/xing-you-ji/go-container-micro/user/domain/service"
+	user "github.com/xing-you-ji/go-container-micro/user/proto/user"
 )
 
 type User struct {
-UserDataService service.IUserDataService
+	UserDataService service.IUserDataService
 }
 
 // Register 注册

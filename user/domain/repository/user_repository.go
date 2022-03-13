@@ -2,7 +2,7 @@ package repository
 
 import (
 	"github.com/jinzhu/gorm"
-	"github.com/xing-you-ji/go-container-micro/domain/model"
+	"github.com/xing-you-ji/go-container-micro/user/domain/model"
 )
 
 type IUserRepository interface {
@@ -66,6 +66,3 @@ func (u *UserRepository) UpdateUser(user *model.User) error {
 func (u *UserRepository) FindAll() (userAll []*model.User, err error) {
 	return userAll, u.mysqlDb.Find(userAll).Error
 }
-
-
-

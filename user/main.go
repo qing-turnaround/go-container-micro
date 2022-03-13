@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"github.com/jinzhu/gorm"
 	"github.com/micro/go-micro/v2"
-	"github.com/xing-you-ji/go-container-micro/domain/repository"
-	service2 "github.com/xing-you-ji/go-container-micro/domain/service"
-	"github.com/xing-you-ji/go-container-micro/handler"
-	user "github.com/xing-you-ji/go-container-micro/proto/user"
+	"github.com/xing-you-ji/go-container-micro/user/domain/repository"
+	service2 "github.com/xing-you-ji/go-container-micro/user/domain/service"
+	"github.com/xing-you-ji/go-container-micro/user/handler"
+	user "github.com/xing-you-ji/go-container-micro/user/proto/user"
 	// 数据库驱动
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )

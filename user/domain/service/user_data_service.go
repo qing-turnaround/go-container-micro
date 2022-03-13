@@ -2,9 +2,10 @@ package service
 
 import (
 	"errors"
+
+	"github.com/xing-you-ji/go-container-micro/user/domain/model"
+	"github.com/xing-you-ji/go-container-micro/user/domain/repository"
 	"golang.org/x/crypto/bcrypt"
-	"github.com/xing-you-ji/go-container-micro/domain/model"
-	"github.com/xing-you-ji/go-container-micro/domain/repository"
 )
 
 type IUserDataService interface {
