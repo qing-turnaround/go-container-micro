@@ -19,7 +19,7 @@ import (
 
 func main() {
 	// 配置中心
-	consulConfig, err := common.GetConsulConfig("120.79.17.230", 8500, "/micro/config")
+	consulConfig, err := common.GetConsulConfig("127.0.0.1	", 8500, "/micro/config")
 	if err != nil {
 		log.Error(err)
 	}
@@ -44,7 +44,6 @@ func main() {
 	// 获取mysql配置，路径不带前缀
 	mysqlInfo := common.GetMysqlConfigFromConsul(consulConfig, "mysql")
 	fmt.Println(mysqlInfo)
-	// root:unraveltheworld@tcp(120.79.17.230:3307)/micro?charset=utf8mb4&parseTime=true&loc=Local
 	db, err := gorm.Open("mysql",
 		fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=true&loc=Local",
 			mysqlInfo.User, mysqlInfo.Pwd, mysqlInfo.Host, mysqlInfo.Port, mysqlInfo.Database))
@@ -54,9 +53,9 @@ func main() {
 	defer db.Close()
 	// db.SingularTable(true) 让grom转义struct名字的时候不用加上s
 	db.SingularTable(true)
-	rp := repository.NewCategoryRepository(db)
-	// 初始化表 只执行一次
-	rp.InitTable()
+	//rp := repository.NewCategoryRepository(db)
+	//// 初始化表 只执行一次
+	//rp.InitTable()
 
 	// Initialise service
 	service.Init()
