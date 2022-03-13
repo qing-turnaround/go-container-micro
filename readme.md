@@ -5,7 +5,7 @@
 * docker pull micro/micro
 * docker run --rm -v $(pwd):$(pwd) -w $(pwd) micro/micro new user
 
-2. 编写[user/user.proto](./user/proto/user/user.proto)，来快速生成代码
+2. 编写[user.proto](./user/proto/user/user.proto)，来快速生成代码
 * docker pull zhugeqing/protoc
 * 提前编写好user目录下的[Makefile](./user/Makefile)
 * make proto
@@ -20,4 +20,10 @@
 ## 注册配置中心的实现
 1. 安装和运行注册中心Consul
 * docker pull zhugeqing/consul:latest
-* docker run 
+* docker run -d -p 6666:6666 zhugeqing/consul:latest
+
+2. 快速构建初始代码
+* docker pull zhugeqing/micro:latest
+* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:latest new category
+
+3. 编写[category.proto](./category/proto/category/category.proto)，来快速生成代码
