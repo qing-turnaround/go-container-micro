@@ -2,12 +2,14 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/jinzhu/gorm"
 	"github.com/micro/go-micro/v2"
 	"github.com/xing-you-ji/go-container-micro/user/domain/repository"
 	service2 "github.com/xing-you-ji/go-container-micro/user/domain/service"
 	"github.com/xing-you-ji/go-container-micro/user/handler"
 	user "github.com/xing-you-ji/go-container-micro/user/proto/user"
+
 	// 数据库驱动
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
@@ -17,6 +19,7 @@ func main() {
 	srv := micro.NewService(
 		micro.Name("go.micro.service.user"),
 		micro.Version("latest"),
+		micro.Address("127.0.0.1:8081"),
 	)
 	// 初始化服务
 	srv.Init()
