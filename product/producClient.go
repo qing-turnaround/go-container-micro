@@ -35,7 +35,7 @@ func main() {
 
 	// New Service
 	service := micro.NewService(
-		micro.Name("go.micro.service.product"),
+		micro.Name("go.micro.service.client"),
 		micro.Version("latest"),
 		micro.Address("127.0.0.1:8083"),
 		// 添加consul为注册中心
@@ -48,10 +48,10 @@ func main() {
 	productService := product.NewProductService("go.micro.service.product", service.Client())
 
 	productAdd := &product.ProductInfo{
-		ProductName:        "蕾贝卡",
+		ProductName:        "zhugeqing",
 		ProductSku:         "cap",
 		ProductPrice:       999,
-		ProductDescription: "哈哈哈哈",
+		ProductDescription: "zhugeqing",
 		ProductCategoryId:  1,
 		ProductImage: []*product.ProductImage{
 			{
@@ -62,13 +62,13 @@ func main() {
 		},
 		ProductSize: []*product.ProductSize{
 			{
-				SizeName: "大",
+				SizeName: "big",
 				SizeCode: "1",
 			},
 		},
 		ProductSeo: &product.ProductSeo{
-			SeoTitle:       "海贼王蕾贝卡",
-			SeoKeywords:    "蕾贝卡",
+			SeoTitle:       "one piece",
+			SeoKeywords:    "one piece",
 			SeoDescription: "seo",
 			SeoCode:        "seo",
 		},
