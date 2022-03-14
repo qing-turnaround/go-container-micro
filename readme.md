@@ -28,7 +28,7 @@
 * docker pull zhugeqing/micro:latest
 * docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:latest new category
 
-3. 编写[category.proto](./category/proto/category/category.proto)，来快速生成代码
+3. 编写[category.proto](./category/proto/category/category.proto)来快速生成代码
 
 4. 编写[category/domain/](./category/domain)来完成完善领域模型
 
@@ -42,3 +42,27 @@
 * Consul 使用会有健康检查，不健康的服务会被主动剔除
 * Consul 多集群使用过程中注意数据落盘（将数据放入服务器中）
 * 多了解Consul的两个重要协议Gossip（八卦协议）、Raft（选举协议）
+
+## 链路追踪
+> 用来监视和诊断基于微服务的分布式系统
+
+### 微服务链路追踪（jaeger）主要特性
+* 高扩展性
+* 原生支持 opentracing
+* 可观察性
+
+### 微服务链路追踪（jaeger）的五个重要的组件
+* jaeger-client（客户端库）
+* Agent（客户端代理）
+* Collector（数据收集处理）
+* Data Store（数据存储）
+* UI（数据查询和前端界面展示）
+
+### 开发
+1. 安装和运行微服务链路追踪（jaeger）
+* docker pull zhugeqing/jaeger:latest
+* docker run -d -name jaeger -p 6831:6831/udp -p 16686:16686 zhugeqing/jaeger
+> jaeger端口说明：6831协议为UDP，所属模块为agent，功能为通过兼容性Thrift协议，接收jaeger thrift类型协议；
+> 16686协议为HTTP，所属模块为query，功能为客户端前端界面展示接口
+
+2. 编写[product.proto](./product/proto/product/product.proto)来快速生成代码
