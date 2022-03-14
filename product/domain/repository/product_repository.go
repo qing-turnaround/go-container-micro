@@ -1,54 +1,92 @@
 package repository
+
 import (
+	"github.com/xing-you-ji/go-container-micro/product/domain/model"
+
 	"github.com/jinzhu/gorm"
-	"product/domain/model"
 )
-type IProductRepository interface{
-    InitTable() error
-    FindProductByID(int64) (*model.Product, error)
+
+type IProductRepository interface {
+	InitTable() error
+	FindProductByID(int64) (*model.Product, error)
 	CreateProduct(*model.Product) (int64, error)
 	DeleteProductByID(int64) error
 	UpdateProduct(*model.Product) error
-	FindAll()([]model.Product,error)
-
+	FindAll() ([]model.Product, error)
 }
-//创建productRepository
-func NewProductRepository(db *gorm.DB) IProductRepository  {
-	return &ProductRepository{mysqlDb:db}
+
+// NewProductRepository 创建productRepository
+func NewProductRepository(db *gorm.DB) IProductRepository {
+	return &ProductRepository{mysqlDb: db}
 }
 
 type ProductRepository struct {
 	mysqlDb *gorm.DB
 }
 
-//初始化表
-func (u *ProductRepository)InitTable() error  {
-	return u.mysqlDb.CreateTable(&model.Product{}).Error
+// InitTable 初始化表
+func (u *ProductRepository) InitTable() error {
+	// 创建四张表
+	return u.mysqlDb.CreateTable(&model.Product{}, &model.ProductImage{},
+		&model.ProductSeo{}, &model.ProductSize{}).Error
 }
 
-//根据ID查找Product信息
-func (u *ProductRepository)FindProductByID(productID int64) (product *model.Product,err error) {
+// FindProductByID 根据ID查找Product信息
+func (u *ProductRepository) FindProductByID(productID int64) (product *model.Product, err error) {
 	product = &model.Product{}
-	return product, u.mysqlDb.Model(&model.Product{}).First(product,productID)
+	// 因为有些信息在不同的表中，所以需哟使用Preload来加载其他的表
+	return product, u.mysqlDb.Preload("ProductImage'").
+		Preload("ProductSeo").Preload("ProductSize").First(product, productID).Error
 }
 
-//创建Product信息
-func (u *ProductRepository) CreateProduct(product *model.Product) (productID int64,err error) {
+// CreateProduct 创建Product信息
+func (u *ProductRepository) CreateProduct(product *model.Product) (productID int64, err error) {
 	return product.ID, u.mysqlDb.Create(product).Error
 }
 
-//根据ID删除Product信息
-func (u *ProductRepository) DeleteProductByID(productID int64) err error {
-	return u.mysqlDb.Where("ID = ?",productID).Delete(&model.Product{}).Error
+// DeleteProductByID 根据ID删除Product信息
+func (u *ProductRepository) DeleteProductByID(productID int64) error {
+	// 开启事务
+	tx := u.mysqlDb.Begin()
+
+	defer func() {
+		if r := recover(); r != nil {
+			tx.Rollback() // 如果错误就回滚
+		}
+	}()
+
+	if tx.Error != nil {
+		return tx.Error
+	}
+	// 删除
+	if err := tx.Unscoped().Where("id = ?", productID).Delete(&model.Product{}).Error; err != nil {
+		tx.Rollback()
+		return err
+	}
+	if err := tx.Unscoped().Where("images_product_id = ?", productID).Delete(&model.ProductImage{}).Error; err != nil {
+		tx.Rollback()
+		return err
+	}
+	if err := tx.Unscoped().Where("size_product_id = ?", productID).Delete(&model.ProductSize{}).Error; err != nil {
+		tx.Rollback()
+		return err
+	}
+	if err := tx.Unscoped().Where("seo_product_id = ?", productID).Delete(&model.ProductSeo{}).Error; err != nil {
+		tx.Rollback()
+		return err
+	}
+
+	return tx.Commit().Error
 }
 
-//更新Product信息
+// UpdateProduct 更新Product信息
 func (u *ProductRepository) UpdateProduct(product *model.Product) (err error) {
 	return u.mysqlDb.Model(&product).Update(product).Error
 }
 
-//获取结果集
-func (u *ProductRepository) FindAll()(productAll []model.Product,err error) {
-	return productAll, u.mysqlDb.Find(&productAll).Error
+// FindAll 获取结果集
+func (u *ProductRepository) FindAll() (productAll []model.Product, err error) {
+	// 同样需要用Preload进行关联
+	return productAll, u.mysqlDb.Preload("ProductImage'").
+		Preload("ProductSeo").Preload("ProductSize").Find(&productAll).Error
 }
-
