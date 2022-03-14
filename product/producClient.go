@@ -25,7 +25,7 @@ func main() {
 	})
 
 	// 链路追踪
-	t, io, err := common.NewTracer("go.micro.service.product",
+	t, io, err := common.NewTracer("go.micro.service.client",
 		"127.0.0.1:6831")
 	if err != nil {
 		log.Fatal(err) // Fatal系列函数会在写入日志信息后调用os.Exit(1)。Panic系列函数会在写入日志信息后panic。
