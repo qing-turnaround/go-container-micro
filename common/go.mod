@@ -7,6 +7,7 @@ require (
 	github.com/micro/go-plugins/config/source/consul/v2 v2.9.1
 	github.com/opentracing/opentracing-go v1.2.0
 	github.com/uber/jaeger-client-go v2.30.0+incompatible
+	github.com/xing-you-ji/go-container-micro/cart v0.0.0-20220315164936-421a72a5f07b
 	github.com/xing-you-ji/go-container-micro/product v0.0.0-20220315141205-e079180f0465
 )
 
