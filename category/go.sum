@@ -491,8 +491,11 @@ github.com/xeipuuv/gojsonschema v0.0.0-20180618132009-1d523034197f/go.mod h1:5yf
 github.com/xeipuuv/gojsonschema v1.1.0/go.mod h1:5yf86TLmAcydyeJq5YvxkGPE2fm/u4myDekKRoLuqhs=
 github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2 h1:eY9dn8+vbi4tKz5Qo6v2eYzo7kUS51QINcR5jNpbZS8=
 github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2/go.mod h1:UETIi67q53MR2AWcXfiuqkDkRtnGDLqkBTpCHuJHxtU=
-github.com/xing-you-ji/go-container-micro/common v0.0.0-20220315164936-421a72a5f07b h1:nHCV00y13yzqKHVjRqSSiVSssFV1Js39VCTswtyFg0A=
-github.com/xing-you-ji/go-container-micro/common v0.0.0-20220315164936-421a72a5f07b/go.mod h1:TCb4a8NDvfjC/OiDWmMd3qRC1VK+0+vQ5w+L9euWEd8=
+github.com/xing-you-ji/go-container-micro/cart v0.0.0-20220315164936-421a72a5f07b h1:M+nmW/4HPBelhegMLAlK2E9HlZWFDkoY8ssT58AmHbA=
+github.com/xing-you-ji/go-container-micro/cart v0.0.0-20220315164936-421a72a5f07b/go.mod h1:AjG53i1hTlTWC5ctMltTA9s+nIlXIL1x5d2uA30op0Y=
+github.com/xing-you-ji/go-container-micro/category v0.0.0-20220315164936-421a72a5f07b/go.mod h1:2BCLUwS+Gs4UCY8kiE1irc5hnyUaFtZVC0cx2Nh9fis=
+github.com/xing-you-ji/go-container-micro/common v0.0.0-20220315175514-79e19175110d h1:NNdiYkM9FWwA8avbBULYLqP7P/epFBiK9Rhbzo4XBjU=
+github.com/xing-you-ji/go-container-micro/common v0.0.0-20220315175514-79e19175110d/go.mod h1:Yi5V1gPMd0ttFFSSkwT+eknlmTRWn6hzqVqJ6fQ972o=
 github.com/xing-you-ji/go-container-micro/product v0.0.0-20220315141205-e079180f0465 h1:pEGhjXNdh5Ah7M5OB2hlmxCa5jdewVDnsOJuT5YdPfA=
 github.com/xing-you-ji/go-container-micro/product v0.0.0-20220315141205-e079180f0465/go.mod h1:LdPXVJjMt94u0eYGEkTyIIy7smYBKj+P+Oi08X1EBpA=
 go.etcd.io/bbolt v1.3.4/go.mod h1:G5EMThwa9y8QZGBClrRx5EY+Yw9kAhnjy3bSjsnlVTQ=

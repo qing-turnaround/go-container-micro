@@ -13,14 +13,14 @@ type User struct {
 }
 
 // Register 注册
-func (u *User) Register(ctx context.Context, userRegisterRequest *user.UserRegisterRequest,
+func (h *User) Register(ctx context.Context, userRegisterRequest *user.UserRegisterRequest,
 	userRegisterResponse *user.UserRegisterResponse) error {
 	userRegister := &model.User{
 		UserName:     userRegisterRequest.UserName,
 		FirstName:    userRegisterRequest.FirstName,
 		HashPassword: userRegisterRequest.Pwd,
 	}
-	_, err := u.UserDataService.AddUser(userRegister)
+	_, err := h.UserDataService.AddUser(userRegister)
 	if err != nil {
 		return err
 	}
@@ -29,9 +29,9 @@ func (u *User) Register(ctx context.Context, userRegisterRequest *user.UserRegis
 }
 
 // Login 登录
-func (u *User) Login(ctx context.Context, userLoginRequest *user.UserLoginRequest,
+func (h *User) Login(ctx context.Context, userLoginRequest *user.UserLoginRequest,
 	userLoginResponse *user.UserLoginResponse) error {
-	isOk, err := u.UserDataService.CheckPwd(userLoginRequest.UserName, userLoginRequest.Pwd)
+	isOk, err := h.UserDataService.CheckPwd(userLoginRequest.UserName, userLoginRequest.Pwd)
 	if err != nil {
 		return err
 	}
@@ -40,9 +40,9 @@ func (u *User) Login(ctx context.Context, userLoginRequest *user.UserLoginReques
 }
 
 // GetUserInfo 查询用户信息
-func (u *User) GetUserInfo(ctx context.Context, userInfoRequest *user.UserInfoRequest,
+func (h *User) GetUserInfo(ctx context.Context, userInfoRequest *user.UserInfoRequest,
 	UserInfoResponse *user.UserInfoResponse) error {
-	userInfo, err := u.UserDataService.FindUserByName(userInfoRequest.UserName)
+	userInfo, err := h.UserDataService.FindUserByName(userInfoRequest.UserName)
 	if err != nil {
 		return err
 	}

@@ -32,7 +32,8 @@ type UserRepository struct {
 
 // InitTable 初始化数据表
 func (u *UserRepository) InitTable() error {
-	return u.mysqlDb.CreateTable(&model.User{}).Error
+	return u.mysqlDb.Set("gorm:table_options", "ENGINE=InnoDB DEFAULT CHARSET=utf8").
+		CreateTable(&model.User{}).Error
 }
 
 // FindUserByName 根据用户名称查找用户信息

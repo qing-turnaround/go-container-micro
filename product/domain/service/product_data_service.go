@@ -13,7 +13,7 @@ type IProductDataService interface {
 	FindAllProduct() ([]model.Product, error)
 }
 
-//NewProductDataService 创建
+// NewProductDataService 创建
 func NewProductDataService(productRepository repository.IProductRepository) IProductDataService {
 	return &ProductDataService{productRepository}
 }

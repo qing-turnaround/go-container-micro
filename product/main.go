@@ -52,7 +52,7 @@ func main() {
 		log.Error(err)
 	}
 	defer db.Close()
-	// db.SingularTable(true) 让grom转义struct名字的时候不用加上s
+	// db.SingularTable(true) 让gorm转义struct名字的时候不用加上s
 	db.SingularTable(true)
 
 	// // 初始化表 只执行一次
