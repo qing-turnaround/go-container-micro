@@ -26,9 +26,10 @@ type ProductRepository struct {
 
 // InitTable 初始化表
 func (u *ProductRepository) InitTable() error {
-	// 创建四张表
-	return u.mysqlDb.CreateTable(&model.Product{}, &model.ProductImage{},
-		&model.ProductSeo{}, &model.ProductSize{}).Error
+	// 创建四张表（并设置字符集）
+	return u.mysqlDb.Set("gorm:table_options", "ENGINE=InnoDB DEFAULT CHARSET=utf8").
+		CreateTable(&model.Product{}, &model.ProductImage{},
+			&model.ProductSeo{}, &model.ProductSize{}).Error
 }
 
 // FindProductByID 根据ID查找Product信息
