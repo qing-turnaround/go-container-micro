@@ -3,35 +3,54 @@ syntax = "proto3";
 package go.micro.service.cart;
 
 service Cart {
-	rpc Call(Request) returns (Response) {}
-	rpc Stream(StreamingRequest) returns (stream StreamingResponse) {}
-	rpc PingPong(stream Ping) returns (stream Pong) {}
+	// 添加购物车
+	rpc AddCart(CartInfo) returns (ResponseAdd) {}
+	// 清空购物车
+	rpc CleanCart(Clean) returns (Response){}
+	// 添加商品
+	rpc Incr(Item) returns (Response){}
+	// 删除商品
+	rpc Decr(Item) returns (Response){}
+	// 通过商品ID删除
+	rpc DeleteItemByID (CartID) returns (Response){}
+	// 获取购物车所有
+	rpc GetAll(CartFindAll) returns (CartAll){}
 }
 
-message Message {
-	string say = 1;
+message CartInfo {
+	int64 id = 1;
+	int64 user_id =2;
+	int64 product_id = 3;
+	int64 size_id = 4;
+	int64 num =5;
 }
 
-message Request {
-	string name = 1;
+message ResponseAdd{
+	int64 cart_id =1;
+	string msg =2;
+}
+
+message Clean {
+	int64 user_id =1;
 }
 
 message Response {
-	string msg = 1;
+	string meg =1;
 }
 
-message StreamingRequest {
-	int64 count = 1;
+message Item {
+	int64 id =1;
+	int64 change_num = 2;
 }
 
-message StreamingResponse {
-	int64 count = 1;
+message CartID{
+	int64 id =1;
 }
 
-message Ping {
-	int64 stroke = 1;
+message CartFindAll {
+	int64 user_id =1;
 }
 
-message Pong {
-	int64 stroke = 1;
+message CartAll {
+	repeated CartInfo cart_info =1;
 }
