@@ -11,11 +11,11 @@ import (
 	log "github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/registry"
 	"github.com/micro/go-plugins/registry/consul/v2"
-	"github.com/xing-you-ji/go-container-micro/category/common"
 	"github.com/xing-you-ji/go-container-micro/category/domain/repository"
 	service2 "github.com/xing-you-ji/go-container-micro/category/domain/service"
 	"github.com/xing-you-ji/go-container-micro/category/handler"
 	category "github.com/xing-you-ji/go-container-micro/category/proto/category"
+	"github.com/xing-you-ji/go-container-micro/common"
 )
 
 func main() {

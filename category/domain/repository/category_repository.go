@@ -28,7 +28,8 @@ type CategoryRepository struct {
 
 // InitTable 初始化表
 func (u *CategoryRepository) InitTable() error {
-	return u.mysqlDb.CreateTable(&model.Category{}).Error
+	return u.mysqlDb.Set("gorm:table_options", "ENGINE=InnoDB DEFAULT CHARSET=utf8").
+		CreateTable(&model.Category{}).Error
 }
 
 // FindCategoryByID 根据ID查找Category信息
