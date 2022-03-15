@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/micro/go-micro/v2"
 	log "github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2/registry"
@@ -55,6 +56,8 @@ func main() {
 	defer db.Close()
 	// db.SingularTable(true) 让gorm转义struct名字的时候不用加上s
 	db.SingularTable(true)
+	// // 初始化表 只执行一次
+	repository.NewCartRepository(db).InitTable()
 
 	// New Service
 	service := micro.NewService(

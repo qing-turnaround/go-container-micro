@@ -337,9 +337,11 @@ github.com/micro/go-micro/v2 v2.9.1 h1:+S9koIrNWARjpP6k2TZ7kt0uC9zUJtNXzIdZTZRms
 github.com/micro/go-micro/v2 v2.9.1/go.mod h1:x55ZM3Puy0FyvvkR3e0ha0xsE9DFwfPSUMWAIbFY0SY=
 github.com/micro/go-plugins/config/source/consul/v2 v2.9.1 h1:XeRTTccI9y0350tbrPdM68+c3rKJTRJquWRDXTZf4l8=
 github.com/micro/go-plugins/config/source/consul/v2 v2.9.1/go.mod h1:+3+XCOz1MTa6P8nggQ9xa71E63MOsgBygrg38/Xf6Jo=
+github.com/micro/go-plugins/registry/consul/v2 v2.9.1 h1:3IRsR8B9rEsjY4UXvhlkItEi0F/48LBOGdF3J8qLPMY=
 github.com/micro/go-plugins/registry/consul/v2 v2.9.1/go.mod h1:k+12oSCZwN0lYcWeiJ2Y12FWLP02fwJEJk6+EV5n6Io=
 github.com/micro/go-plugins/wrapper/ratelimiter/uber/v2 v2.9.1 h1:KhRh0JsLO+AZa7t5Dj85xpJxFsG9HPBY+5uDyouGNiE=
 github.com/micro/go-plugins/wrapper/ratelimiter/uber/v2 v2.9.1/go.mod h1:fCfY+fsejucBdZag1AJk98vVa7H+3QngA1LAMwEM0vk=
+github.com/micro/go-plugins/wrapper/trace/opentracing/v2 v2.9.1 h1:5wnqJv5RLyVQArcZI6qhPJt7tLi6W8cnvNcC0dfy8x0=
 github.com/micro/go-plugins/wrapper/trace/opentracing/v2 v2.9.1/go.mod h1:JyDIUQgJ0noSBbxW2cuNWVAxmKXF5VeTbJ8JY1S1160=
 github.com/miekg/dns v1.0.14/go.mod h1:W1PPwlIAgtquWBMBEV9nkV9Cazfe8ScdGz/Lj7v3Nrg=
 github.com/miekg/dns v1.1.15/go.mod h1:W1PPwlIAgtquWBMBEV9nkV9Cazfe8ScdGz/Lj7v3Nrg=
@@ -492,8 +494,10 @@ github.com/xeipuuv/gojsonschema v0.0.0-20180618132009-1d523034197f/go.mod h1:5yf
 github.com/xeipuuv/gojsonschema v1.1.0/go.mod h1:5yf86TLmAcydyeJq5YvxkGPE2fm/u4myDekKRoLuqhs=
 github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2 h1:eY9dn8+vbi4tKz5Qo6v2eYzo7kUS51QINcR5jNpbZS8=
 github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2/go.mod h1:UETIi67q53MR2AWcXfiuqkDkRtnGDLqkBTpCHuJHxtU=
-github.com/xing-you-ji/go-container-micro/common v0.0.0-20220315164936-421a72a5f07b h1:nHCV00y13yzqKHVjRqSSiVSssFV1Js39VCTswtyFg0A=
-github.com/xing-you-ji/go-container-micro/common v0.0.0-20220315164936-421a72a5f07b/go.mod h1:TCb4a8NDvfjC/OiDWmMd3qRC1VK+0+vQ5w+L9euWEd8=
+github.com/xing-you-ji/go-container-micro/cart v0.0.0-20220315164936-421a72a5f07b/go.mod h1:AjG53i1hTlTWC5ctMltTA9s+nIlXIL1x5d2uA30op0Y=
+github.com/xing-you-ji/go-container-micro/category v0.0.0-20220315164936-421a72a5f07b h1:dDqaKefEhcTWttM0TFSf6R3WzS4V3KFGvedRjUM+anc=
+github.com/xing-you-ji/go-container-micro/category v0.0.0-20220315164936-421a72a5f07b/go.mod h1:2BCLUwS+Gs4UCY8kiE1irc5hnyUaFtZVC0cx2Nh9fis=
+github.com/xing-you-ji/go-container-micro/common v0.0.0-20220315175514-79e19175110d h1:NNdiYkM9FWwA8avbBULYLqP7P/epFBiK9Rhbzo4XBjU=
 github.com/xing-you-ji/go-container-micro/common v0.0.0-20220315175514-79e19175110d/go.mod h1:Yi5V1gPMd0ttFFSSkwT+eknlmTRWn6hzqVqJ6fQ972o=
 github.com/xing-you-ji/go-container-micro/product v0.0.0-20220315141205-e079180f0465 h1:pEGhjXNdh5Ah7M5OB2hlmxCa5jdewVDnsOJuT5YdPfA=
 github.com/xing-you-ji/go-container-micro/product v0.0.0-20220315141205-e079180f0465/go.mod h1:LdPXVJjMt94u0eYGEkTyIIy7smYBKj+P+Oi08X1EBpA=

@@ -6,6 +6,10 @@ require (
 	github.com/golang/protobuf v1.5.2
 	github.com/jinzhu/gorm v1.9.16
 	github.com/micro/go-micro/v2 v2.9.1
+	github.com/micro/go-plugins/registry/consul/v2 v2.9.1
+	github.com/micro/go-plugins/wrapper/ratelimiter/uber/v2 v2.9.1
+	github.com/micro/go-plugins/wrapper/trace/opentracing/v2 v2.9.1
+	github.com/opentracing/opentracing-go v1.2.0
 	github.com/xing-you-ji/go-container-micro/common v0.0.0-20220315175514-79e19175110d
 )
 
@@ -24,6 +28,7 @@ require (
 	github.com/go-git/gcfg v1.5.0 // indirect
 	github.com/go-git/go-billy/v5 v5.0.0 // indirect
 	github.com/go-git/go-git/v5 v5.1.0 // indirect
+	github.com/go-sql-driver/mysql v1.5.0 // indirect
 	github.com/gogo/protobuf v1.2.1 // indirect
 	github.com/google/uuid v1.1.1 // indirect
 	github.com/hashicorp/consul/api v1.3.0 // indirect
@@ -40,7 +45,6 @@ require (
 	github.com/kevinburke/ssh_config v0.0.0-20190725054713-01f96b0aa0cd // indirect
 	github.com/micro/cli/v2 v2.1.2 // indirect
 	github.com/micro/go-plugins/config/source/consul/v2 v2.9.1 // indirect
-	github.com/micro/go-plugins/wrapper/ratelimiter/uber/v2 v2.9.1 // indirect
 	github.com/miekg/dns v1.1.27 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/hashstructure v1.0.0 // indirect
@@ -49,7 +53,6 @@ require (
 	github.com/nats-io/nats.go v1.9.2 // indirect
 	github.com/nats-io/nkeys v0.1.4 // indirect
 	github.com/nats-io/nuid v1.0.1 // indirect
-	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/oxtoacart/bpool v0.0.0-20190530202638-03653db5a59c // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
 	github.com/pkg/errors v0.9.1 // indirect
@@ -59,6 +62,7 @@ require (
 	github.com/uber/jaeger-client-go v2.30.0+incompatible // indirect
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	github.com/xanzy/ssh-agent v0.2.1 // indirect
+	github.com/xing-you-ji/go-container-micro/category v0.0.0-20220315164936-421a72a5f07b // indirect
 	github.com/xing-you-ji/go-container-micro/product v0.0.0-20220315141205-e079180f0465 // indirect
 	go.uber.org/atomic v1.5.0 // indirect
 	go.uber.org/multierr v1.3.0 // indirect
