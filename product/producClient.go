@@ -48,7 +48,7 @@ func main() {
 	productService := product.NewProductService("go.micro.service.product", service.Client())
 
 	productAdd := &product.ProductInfo{
-		ProductName:        "zhugeqing",
+		ProductName:        "蕾贝卡",
 		ProductSku:         "cap",
 		ProductPrice:       999,
 		ProductDescription: "zhugeqing",

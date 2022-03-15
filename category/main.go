@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/jinzhu/gorm"
+
 	// 数据库驱动
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 	"github.com/micro/go-micro/v2"
@@ -31,19 +32,8 @@ func main() {
 		}
 	})
 
-	// New Service
-	service := micro.NewService(
-		micro.Name("go.micro.service.category"),
-		micro.Version("latest"),
-		// 设置地址和暴露的端口
-		micro.Address("127.0.0.1:8082"),
-		// 添加consul为注册中心
-		micro.Registry(consulRegistry),
-	)
-
 	// 获取mysql配置，路径不带前缀
 	mysqlInfo := common.GetMysqlConfigFromConsul(consulConfig, "mysql")
-	fmt.Println(mysqlInfo)
 	db, err := gorm.Open("mysql",
 		fmt.Sprintf("%s:%s@tcp(%s:%d)/%s?charset=utf8mb4&parseTime=true&loc=Local",
 			mysqlInfo.User, mysqlInfo.Pwd, mysqlInfo.Host, mysqlInfo.Port, mysqlInfo.Database))
@@ -56,6 +46,16 @@ func main() {
 	//rp := repository.NewCategoryRepository(db)
 	//// 初始化表 只执行一次
 	//rp.InitTable()
+
+	// New Service
+	service := micro.NewService(
+		micro.Name("go.micro.service.category"),
+		micro.Version("latest"),
+		// 设置地址和暴露的端口
+		micro.Address("127.0.0.1:8082"),
+		// 添加consul为注册中心
+		micro.Registry(consulRegistry),
+	)
 
 	// Initialise service
 	service.Init()

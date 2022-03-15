@@ -66,3 +66,17 @@
 > 16686协议为HTTP，所属模块为query，功能为客户端前端界面展示接口
 
 2. 编写[product.proto](./product/proto/product/product.proto)来快速生成代码
+
+3. 编写[product/domain/](./product/domain)来完成完善领域模型
+
+4. 编写[Handle](product/handler/product.go)要暴露的服务
+
+5. 编写[main.go](product/main.go)
+
+6. 编写关于链路追踪的代码
+
+7. 编写客户端[productClient](/product/producClient.go)来测试链路追踪
+
+### 链路追踪一些知识
+* 链路追踪数据写入的过程中可以加入kafaka缓冲压力
+* 可以通过链路追踪发现是否有服务的循环调用

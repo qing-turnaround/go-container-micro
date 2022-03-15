@@ -17,15 +17,15 @@ func SwapTo(request, category interface{}) (err error) {
 	return json.Unmarshal(dataBytes, category)
 }
 
-//
+// SwapSliceTo 切片的Swapto
 func SwapSliceTo(categorySlice []model.Category, response *category.FindAllResponse) (err error) {
-	for _, cg := range categorySlice {
-		cr := &category.CategoryResponse{}
-		if SwapTo(cg, cr) != nil {
+	for _, v := range categorySlice {
+		categoryResponse := &category.CategoryResponse{}
+		if SwapTo(v, categoryResponse) != nil {
 			log.Println(err)
 			return err
 		}
-		response.Category = append(response.Category, cr)
+		response.Category = append(response.Category, categoryResponse)
 	}
 	return nil
 }
