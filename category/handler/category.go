@@ -76,7 +76,7 @@ func (h *Category) FindCategoryByLevel(ctx context.Context, request *category.Fi
 	if err != nil {
 		return err
 	}
-	return common.(categorySlice, response)
+	return common.SwapCategoryTo(categorySlice, response)
 }
 func (h *Category) FindCategoryByParent(ctx context.Context, request *category.FindByParentRequest,
 	response *category.FindAllResponse) error {
@@ -84,7 +84,7 @@ func (h *Category) FindCategoryByParent(ctx context.Context, request *category.F
 	if err != nil {
 		return err
 	}
-	return common.SwapSliceTo(categorySlice, response)
+	return common.SwapCategoryTo(categorySlice, response)
 }
 func (h *Category) FindAllCategory(ctx context.Context, request *category.FindAllRequest,
 	response *category.FindAllResponse) error {
@@ -92,5 +92,5 @@ func (h *Category) FindAllCategory(ctx context.Context, request *category.FindAl
 	if err != nil {
 		return err
 	}
-	return common.SwapSliceTo(categorySlice, response)
+	return common.SwapCategoryTo(categorySlice, response)
 }
