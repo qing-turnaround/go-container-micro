@@ -20,7 +20,7 @@ import (
 
 func main() {
 	// 配置中心
-	consulConfig, err := common.GetConsulConfig("127.0.0.1	", 8500, "/micro/config")
+	consulConfig, err := common.GetConsulConfig("127.0.0.1", 8500, "/micro/config")
 	if err != nil {
 		log.Error(err)
 	}

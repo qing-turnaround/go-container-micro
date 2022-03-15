@@ -24,7 +24,7 @@ var QPS = 100 // 每秒查询率
 func main() {
 
 	// 配置中心
-	consulConfig, err := common.GetConsulConfig("120.79.17.230", 8500, "/micro/config")
+	consulConfig, err := common.GetConsulConfig("127.0.0.1", 8500, "/micro/config")
 	if err != nil {
 		log.Error(err)
 	}
@@ -57,7 +57,7 @@ func main() {
 	// db.SingularTable(true) 让gorm转义struct名字的时候不用加上s
 	db.SingularTable(true)
 	// // 初始化表 只执行一次
-	repository.NewCartRepository(db).InitTable()
+	// repository.NewCartRepository(db).InitTable()
 
 	// New Service
 	service := micro.NewService(
