@@ -56,7 +56,7 @@ func main() {
 	db.SingularTable(true)
 
 	// // 初始化表 只执行一次
-	repository.NewProductRepository(db).InitTable()
+	// repository.NewProductRepository(db).InitTable()
 
 	// New Service
 	service := micro.NewService(

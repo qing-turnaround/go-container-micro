@@ -3,7 +3,7 @@ package handler
 import (
 	"context"
 
-	"github.com/xing-you-ji/go-container-micro/product/common"
+	"github.com/xing-you-ji/go-container-micro/common"
 
 	"github.com/xing-you-ji/go-container-micro/product/domain/model"
 
