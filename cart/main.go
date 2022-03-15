@@ -24,7 +24,7 @@ var QPS = 100 // 每秒查询率
 func main() {
 
 	// 配置中心
-	consulConfig, err := common.GetConsulConfig("127.0.0.1	", 8500, "/micro/config")
+	consulConfig, err := common.GetConsulConfig("120.79.17.230", 8500, "/micro/config")
 	if err != nil {
 		log.Error(err)
 	}
@@ -32,7 +32,7 @@ func main() {
 	// 注册中心
 	consulRegistry := consul2.NewRegistry(func(options *registry.Options) {
 		options.Addrs = []string{
-			"127.0.0.1:8500",
+			"120.79.17.230:8500",
 		}
 	})
 

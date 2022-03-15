@@ -63,6 +63,8 @@ require (
 	github.com/uber/jaeger-client-go v2.30.0+incompatible // indirect
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	github.com/xanzy/ssh-agent v0.2.1 // indirect
+	github.com/xing-you-ji/go-container-micro/cart v0.0.0-20220315164936-421a72a5f07b // indirect
+	github.com/xing-you-ji/go-container-micro/category v0.0.0-20220315164936-421a72a5f07b // indirect
 	go.uber.org/atomic v1.5.0 // indirect
 	go.uber.org/multierr v1.3.0 // indirect
 	go.uber.org/tools v0.0.0-20190618225709-2cfd321de3ee // indirect
