@@ -48,29 +48,29 @@ func main() {
 	productService := product.NewProductService("go.micro.service.product", service.Client())
 
 	productAdd := &product.ProductInfo{
-		ProductName:        "蕾贝卡",
-		ProductSku:         "cap",
+		ProductName:        "彩虹石",
+		ProductSku:         "xing-you-ji",
 		ProductPrice:       999,
 		ProductDescription: "zhugeqing",
 		ProductCategoryId:  1,
 		ProductImage: []*product.ProductImage{
 			{
-				ImageName: "zhugeqing-image",
-				ImageCode: "666",
-				ImageUrl:  "zhugeqing.top",
+				ImageName: "444",
+				ImageCode: "444",
+				ImageUrl:  "zhu4geqing.top",
 			},
 		},
 		ProductSize: []*product.ProductSize{
 			{
-				SizeName: "big",
-				SizeCode: "1",
+				SizeName: "b4ig",
+				SizeCode: "4",
 			},
 		},
 		ProductSeo: &product.ProductSeo{
-			SeoTitle:       "one piece",
-			SeoKeywords:    "one piece",
-			SeoDescription: "seo",
-			SeoCode:        "seo",
+			SeoTitle:       "one4 piece",
+			SeoKeywords:    "one4 piece",
+			SeoDescription: "seo4",
+			SeoCode:        "seo4",
 		},
 	}
 
