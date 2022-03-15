@@ -13,7 +13,7 @@ import (
 	"github.com/micro/go-plugins/registry/consul/v2"
 	opentracing2 "github.com/micro/go-plugins/wrapper/trace/opentracing/v2"
 	"github.com/opentracing/opentracing-go"
-	"github.com/xing-you-ji/go-container-micro/product/common"
+	"github.com/xing-you-ji/go-container-micro/common"
 	service2 "github.com/xing-you-ji/go-container-micro/product/domain/service"
 	"github.com/xing-you-ji/go-container-micro/product/handler"
 	product "github.com/xing-you-ji/go-container-micro/product/proto/product"
