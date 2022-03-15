@@ -431,6 +431,8 @@ github.com/xeipuuv/gojsonschema v1.1.0/go.mod h1:5yf86TLmAcydyeJq5YvxkGPE2fm/u4m
 github.com/xiang90/probing v0.0.0-20190116061207-43a291ad63a2/go.mod h1:UETIi67q53MR2AWcXfiuqkDkRtnGDLqkBTpCHuJHxtU=
 github.com/xing-you-ji/go-container-micro/cart v0.0.0-20220315164936-421a72a5f07b h1:M+nmW/4HPBelhegMLAlK2E9HlZWFDkoY8ssT58AmHbA=
 github.com/xing-you-ji/go-container-micro/cart v0.0.0-20220315164936-421a72a5f07b/go.mod h1:AjG53i1hTlTWC5ctMltTA9s+nIlXIL1x5d2uA30op0Y=
+github.com/xing-you-ji/go-container-micro/category v0.0.0-20220315164936-421a72a5f07b h1:dDqaKefEhcTWttM0TFSf6R3WzS4V3KFGvedRjUM+anc=
+github.com/xing-you-ji/go-container-micro/category v0.0.0-20220315164936-421a72a5f07b/go.mod h1:2BCLUwS+Gs4UCY8kiE1irc5hnyUaFtZVC0cx2Nh9fis=
 github.com/xing-you-ji/go-container-micro/product v0.0.0-20220315141205-e079180f0465 h1:pEGhjXNdh5Ah7M5OB2hlmxCa5jdewVDnsOJuT5YdPfA=
 github.com/xing-you-ji/go-container-micro/product v0.0.0-20220315141205-e079180f0465/go.mod h1:LdPXVJjMt94u0eYGEkTyIIy7smYBKj+P+Oi08X1EBpA=
 go.etcd.io/bbolt v1.3.4/go.mod h1:G5EMThwa9y8QZGBClrRx5EY+Yw9kAhnjy3bSjsnlVTQ=
