@@ -1,13 +1,18 @@
-
+GOPATH:=$(shell go env GOPATH)
+.PHONY: init
+init:
+	go install github.com/golang/protobuf/protoc-gen-go@latest
+	go install github.com/micro/micro/v3/cmd/protoc-gen-micro@latest
+	go install github.com/micro/micro/v3/cmd/protoc-gen-openapi@latest
 
 .PHONY: proto
 proto:
-	sudo docker run --rm  -v $(shell pwd):$(shell pwd) -w $(shell pwd) cap1573/protoc -I ./ --micro_out=./ --go_out=./ ./proto/order/*.proto
+	docker run --rm -v $(shell pwd):$(shell pwd) -w $(shell pwd) zhugeqing/protoc \
+--go_out=./ --micro_out=./ -I ./ ./proto/order/*.proto
 
 .PHONY: build
-build: proto
-
-	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o order-service *.go
+build:
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o order-service main.go
 
 .PHONY: test
 test:
