@@ -1,45 +1,57 @@
 package service
 
 import (
-	"order/domain/model"
-	"order/domain/repository"
+	"github.com/xing-you-ji/go-container-micro/order/domain/model"
+	"github.com/xing-you-ji/go-container-micro/order/domain/repository"
 )
 
 type IOrderDataService interface {
-	AddOrder(*model.Order) (int64 , error)
+	AddOrder(*model.Order) (int64, error)
 	DeleteOrder(int64) error
 	UpdateOrder(*model.Order) error
 	FindOrderByID(int64) (*model.Order, error)
+	FindAllOrder() ([]model.Order, error)
+	UpdateShipStatus(int64, int32) error
+	UpdatePayStatus(int64, int32) error
 }
-
 
 //创建
-func NewOrderDataService(orderRepository repository.IOrderRepository) IOrderDataService{
-	return &OrderService{ orderRepository }
+func NewOrderDataService(orderRepository repository.IOrderRepository) IOrderDataService {
+	return &OrderDataService{orderRepository}
 }
 
-type OrderService struct {
+type OrderDataService struct {
 	OrderRepository repository.IOrderRepository
 }
 
-
-//插入
-func (u *OrderService) AddOrder(order *model.Order) (orderID int64 ,err error) {
-	 return u.OrderRepository.CreateOrder(order)
+// AddOrder 插入
+func (u *OrderDataService) AddOrder(order *model.Order) (orderID int64, err error) {
+	return u.OrderRepository.CreateOrder(order)
 }
 
-//删除
-func (u *OrderService) DeleteOrder(orderID int64) (err error) {
+// DeleteOrder 删除
+func (u *OrderDataService) DeleteOrder(orderID int64) (err error) {
 	return u.OrderRepository.DeleteOrderByID(orderID)
 }
 
-//更新
-func (u *OrderService) UpdateOrder(order *model.Order) (err error) {
+// UpdateOrder 更新
+func (u *OrderDataService) UpdateOrder(order *model.Order) (err error) {
 	return u.OrderRepository.UpdateOrder(order)
 }
 
-//查找
-func (u *OrderService) FindOrderByID(orderID int64) (order *model.Order,err error) {
+// FindOrderByID 查找
+func (u *OrderDataService) FindOrderByID(orderID int64) (order *model.Order, err error) {
 	return u.OrderRepository.FindOrderByID(orderID)
 }
 
+// FindAllOrder 查找
+func (u *OrderDataService) FindAllOrder() ([]model.Order, error) {
+	return u.OrderRepository.FindAll()
+}
+
+func (u *OrderDataService) UpdateShipStatus(orderID int64, shipStatus int32) error {
+	return u.OrderRepository.UpdateShipStatus(orderID, shipStatus)
+}
+func (u *OrderDataService) UpdatePayStatus(orderID int64, payStatus int32) error {
+	return u.OrderRepository.UpdatePayStatus(orderID, payStatus)
+}

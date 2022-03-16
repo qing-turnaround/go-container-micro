@@ -5,6 +5,7 @@ go 1.17
 require (
 	github.com/jinzhu/gorm v1.9.16
 	github.com/micro/go-micro/v2 v2.9.1
+	github.com/xing-you-ji/go-container-micro/common v0.0.0-20220315175514-79e19175110d
 )
 
 require (
