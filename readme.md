@@ -102,3 +102,6 @@
 
 6. 限流（漏桶算法）
 * go get github.com/micro/go-pligins/wrapper/ratelimiter/uber/v2
+
+7. 创建Api网关
+* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:latest new --type=api cartApi

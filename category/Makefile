@@ -11,9 +11,8 @@ proto:
 --go_out=./ --micro_out=./ -I ./ ./proto/category/*.proto
 
 .PHONY: build
-build: proto
-
-	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o category-service *.go
+build:
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o category-service main.go
 
 .PHONY: test
 test:

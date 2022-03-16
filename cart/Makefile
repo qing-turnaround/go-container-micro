@@ -11,9 +11,8 @@ proto:
 --go_out=./ --micro_out=./ -I ./ ./proto/cart/*.proto
 
 .PHONY: build
-build: proto
-
-	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o cart-service *.go
+build:
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o cart-service main.go
 
 .PHONY: test
 test:

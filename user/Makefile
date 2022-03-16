@@ -13,7 +13,7 @@ proto: # makefile中需要使用（shell pwd）才能识别
 
 .PHONY: build
 build:
-	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o user *.go
+	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o user main.go
 
 .PHONY: test
 test:
