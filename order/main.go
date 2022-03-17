@@ -34,7 +34,7 @@ func main() {
 	// 注册中心
 	consulRegistry := consul.NewRegistry(func(options *registry.Options) {
 		options.Addrs = []string{
-			"127.0.0.0:8500",
+			"127.0.0.1:8500",
 		}
 	})
 
