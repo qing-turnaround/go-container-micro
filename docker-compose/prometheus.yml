@@ -7,4 +7,4 @@ scrape_configs:  # 特殊配置
   - job_name: 'order'
     scrape_interval: 5s # 覆盖默认采集间隔
     static_configs:
-      - targets: ['120.79.17.230:9092'] # 通过端口地址采集
+      - targets: ['127.0.0.1:9092'] # 通过端口地址采集
