@@ -10,7 +10,7 @@ require (
 	github.com/micro/go-plugins/wrapper/ratelimiter/uber/v2 v2.9.1
 	github.com/micro/go-plugins/wrapper/trace/opentracing/v2 v2.9.1
 	github.com/opentracing/opentracing-go v1.2.0
-	github.com/xing-you-ji/go-container-micro/common v0.0.0-20220317024014-471e6e6c1b45
+	github.com/xing-you-ji/go-container-micro/common v0.0.0-20220317031925-e4105a0ac73b
 )
 
 require (
