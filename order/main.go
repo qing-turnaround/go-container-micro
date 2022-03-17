@@ -58,8 +58,8 @@ func main() {
 	defer db.Close()
 	// db.SingularTable(true) 让gorm转义struct名字的时候不用加上s
 	db.SingularTable(true)
-	// // 初始化表 只执行一次
-	repository.NewOrderRepository(db).InitTable()
+	// 初始化表 只执行一次
+	// repository.NewOrderRepository(db).InitTable()
 
 	// 实例化 orderDataService
 	orderDataService := service2.NewOrderDataService(repository.NewOrderRepository(db))
