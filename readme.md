@@ -133,3 +133,5 @@
 5. 编写[main.go](order/main.go)
 
 6. 编写[docker-compose中的一些配置文件](docker-compose)
+
+7. 通过docker-compose运行容器，启动prometheus和grafana
