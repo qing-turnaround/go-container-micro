@@ -1,0 +1,20 @@
+# 声明版本
+version: "3"
+services:
+  # 服务名称，并且这个服务名称能够在同一个网络进行访问
+  # consul:注册中心
+  consul-zhugeqing:
+    image: zhugeqing/consul    # 镜像名称
+    ports:
+      - "8500:8500"            # 端口映射
+  # jaeger:链路追踪
+  jaeger-zhugeqing:
+    image: zhugeqing/jaeger
+    ports:
+      - "6831:6831/udp"
+      - "16686:16686"
+  # hystrix-dashboard:熔断器
+  hystrix-dashboard:
+    image: zhugeqing/hystrix-dashboard
+    ports:
+      - "9002:9002"

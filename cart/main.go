@@ -77,8 +77,9 @@ func main() {
 
 	// Register Handler
 	cartDataService := service2.NewCartDataService(repository.NewCartRepository(db))
-	cart.RegisterCartHandler(service.Server(),
-		&handler.Cart{CartDataService: cartDataService})
+	if cart.RegisterCartHandler(service.Server(), &handler.Cart{CartDataService: cartDataService}); err != nil {
+		log.Error(err)
+	}
 
 	// Run service
 	if err := service.Run(); err != nil {

@@ -105,3 +105,27 @@
 
 7. 创建Api网关
 * docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:latest new --type=api cartApi
+* 编写[cartApi.proto](./cartApi/proto/cartApi/cartApi.proto)来快速生成代码
+* 编写[handler](./cartApi/handler/cartApi.go)来暴露api服务
+* 编写[main.go](./cartApi/main.go)
+> 添加熔断
+> 添加负载均衡
+> 
+
+## 性能监控和订单模块
+
+### 微服务监控系统Prometheus 
+* 开源的监控 & 报警 & 时间序列数据库的组合
+* 基本原理是通过HTTP协议周期性抓取被监控组件的状态
+* 适合Docker, k8s环境
+
+### 开发
+
+1. 快速构建初始代码
+* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:latest new order
+
+2. 编写[order.proto](./order/proto/order/order.proto)来快速生成代码
+
+3. 编写[order/domain/](./order/domain)来完成完善领域模型
+
+4. 编写[Handle](order/handler/order.go)要暴露的服务
