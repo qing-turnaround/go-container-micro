@@ -1,0 +1,10 @@
+global: # 全局配置
+  scrape_interval: 15s  # 默认15秒采集一次
+  external_labels:
+    monitor: 'go-micro-zhugeqing-monitor'
+scrape_configs:  # 特殊配置
+  # 监控的服务
+  - job_name: 'order'
+    scrape_interval: 5s # 覆盖默认采集间隔
+    static_configs:
+      - targets: ['172.16.144.76:9092'] # 通过端口地址采集

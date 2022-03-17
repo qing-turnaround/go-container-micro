@@ -129,3 +129,7 @@
 3. 编写[order/domain/](./order/domain)来完成完善领域模型
 
 4. 编写[Handle](order/handler/order.go)要暴露的服务
+
+5. 编写[main.go](order/main.go)
+
+6. 编写[docker-compose中的一些配置文件](docker-compose)
