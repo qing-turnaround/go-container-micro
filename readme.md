@@ -133,3 +133,6 @@
 5. 编写[main.go](order/main.go)
 
 6. 编写[docker-compose中的一些配置文件](docker-compose)
+
+7. 通过docker-compose启动服务，测试prometheus和grafana
+* grafana默认登陆账号密码均为admin
