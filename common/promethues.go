@@ -10,14 +10,14 @@ import (
 )
 
 func Promethues(port int) {
-	httt.Handle("/metrics", promhttp.Handler())
+	http.Handle("/metrics", promhttp.Handler())
 	// 启动web服务
 	go func() {
-		err := http.ListenAndServe(fmt.Sprintf("%s:%d","0.0.0.0:", port), nil)
+		err := http.ListenAndServe(fmt.Sprintf("%s:%d", "0.0.0.0:", port), nil)
 		if err != nil {
 			log.Fatal("启动失败")
 		}
-		log.Debug("监控启动，端口为："+strconv.Itoa(port))
-	}
+		log.Debug("监控启动，端口为：" + strconv.Itoa(port))
+	}()
 
 }
