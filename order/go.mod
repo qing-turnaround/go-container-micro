@@ -7,10 +7,11 @@ require (
 	github.com/jinzhu/gorm v1.9.16
 	github.com/micro/go-micro/v2 v2.9.1
 	github.com/micro/go-plugins/registry/consul/v2 v2.9.1
+	github.com/micro/go-plugins/wrapper/monitoring/prometheus/v2 v2.9.1
 	github.com/micro/go-plugins/wrapper/ratelimiter/uber/v2 v2.9.1
 	github.com/micro/go-plugins/wrapper/trace/opentracing/v2 v2.9.1
 	github.com/opentracing/opentracing-go v1.2.0
-	github.com/xing-you-ji/go-container-micro/common v0.0.0-20220317031925-e4105a0ac73b
+	github.com/xing-you-ji/go-container-micro/common v0.0.0-20220317134835-9ab69c104755
 )
 
 require (
@@ -48,7 +49,6 @@ require (
 	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
 	github.com/micro/cli/v2 v2.1.2 // indirect
 	github.com/micro/go-plugins/config/source/consul/v2 v2.9.1 // indirect
-	github.com/micro/go-plugins/wrapper/monitoring/prometheus/v2 v2.9.1 // indirect
 	github.com/miekg/dns v1.1.27 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/hashstructure v1.0.0 // indirect
