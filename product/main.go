@@ -71,7 +71,7 @@ func main() {
 	// Initialise service
 	service.Init()
 
-	// 注册handler
+	// 实例化dataService
 	productDataService := service2.NewProductDataService(repository.NewProductRepository(db))
 
 	// Register Handler
