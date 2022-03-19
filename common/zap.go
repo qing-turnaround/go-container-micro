@@ -13,7 +13,7 @@ var (
 	maxBackup = 2           // 最大备份日志文件数
 )
 
-func init() {
+func Init() {
 	writeSyncer := getLogWriter(fileName, maxSize, maxBackup, maxAge)
 	encoder := getEncoder()
 	level := zap.NewAtomicLevelAt(zap.DebugLevel)
