@@ -42,9 +42,11 @@ func NewPaymentEndpoints() []*api.Endpoint {
 // Client API for Payment service
 
 type PaymentService interface {
-	Call(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error)
-	Stream(ctx context.Context, in *StreamingRequest, opts ...client.CallOption) (Payment_StreamService, error)
-	PingPong(ctx context.Context, opts ...client.CallOption) (Payment_PingPongService, error)
+	AddPayment(ctx context.Context, in *PaymentInfo, opts ...client.CallOption) (*PaymentID, error)
+	UpdatePayment(ctx context.Context, in *PaymentInfo, opts ...client.CallOption) (*Response, error)
+	DeletePaymentByID(ctx context.Context, in *PaymentID, opts ...client.CallOption) (*Response, error)
+	FindPaymentByID(ctx context.Context, in *PaymentID, opts ...client.CallOption) (*PaymentInfo, error)
+	FindAllPayment(ctx context.Context, in *All, opts ...client.CallOption) (*PaymentAll, error)
 }
 
 type paymentService struct {
@@ -59,8 +61,18 @@ func NewPaymentService(name string, c client.Client) PaymentService {
 	}
 }
 
-func (c *paymentService) Call(ctx context.Context, in *Request, opts ...client.CallOption) (*Response, error) {
-	req := c.c.NewRequest(c.name, "Payment.Call", in)
+func (c *paymentService) AddPayment(ctx context.Context, in *PaymentInfo, opts ...client.CallOption) (*PaymentID, error) {
+	req := c.c.NewRequest(c.name, "Payment.AddPayment", in)
+	out := new(PaymentID)
+	err := c.c.Call(ctx, req, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *paymentService) UpdatePayment(ctx context.Context, in *PaymentInfo, opts ...client.CallOption) (*Response, error) {
+	req := c.c.NewRequest(c.name, "Payment.UpdatePayment", in)
 	out := new(Response)
 	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
@@ -69,119 +81,53 @@ func (c *paymentService) Call(ctx context.Context, in *Request, opts ...client.C
 	return out, nil
 }
 
-func (c *paymentService) Stream(ctx context.Context, in *StreamingRequest, opts ...client.CallOption) (Payment_StreamService, error) {
-	req := c.c.NewRequest(c.name, "Payment.Stream", &StreamingRequest{})
-	stream, err := c.c.Stream(ctx, req, opts...)
+func (c *paymentService) DeletePaymentByID(ctx context.Context, in *PaymentID, opts ...client.CallOption) (*Response, error) {
+	req := c.c.NewRequest(c.name, "Payment.DeletePaymentByID", in)
+	out := new(Response)
+	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
 	}
-	if err := stream.Send(in); err != nil {
-		return nil, err
-	}
-	return &paymentServiceStream{stream}, nil
+	return out, nil
 }
 
-type Payment_StreamService interface {
-	Context() context.Context
-	SendMsg(interface{}) error
-	RecvMsg(interface{}) error
-	Close() error
-	Recv() (*StreamingResponse, error)
-}
-
-type paymentServiceStream struct {
-	stream client.Stream
-}
-
-func (x *paymentServiceStream) Close() error {
-	return x.stream.Close()
-}
-
-func (x *paymentServiceStream) Context() context.Context {
-	return x.stream.Context()
-}
-
-func (x *paymentServiceStream) SendMsg(m interface{}) error {
-	return x.stream.Send(m)
-}
-
-func (x *paymentServiceStream) RecvMsg(m interface{}) error {
-	return x.stream.Recv(m)
-}
-
-func (x *paymentServiceStream) Recv() (*StreamingResponse, error) {
-	m := new(StreamingResponse)
-	err := x.stream.Recv(m)
+func (c *paymentService) FindPaymentByID(ctx context.Context, in *PaymentID, opts ...client.CallOption) (*PaymentInfo, error) {
+	req := c.c.NewRequest(c.name, "Payment.FindPaymentByID", in)
+	out := new(PaymentInfo)
+	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return m, nil
+	return out, nil
 }
 
-func (c *paymentService) PingPong(ctx context.Context, opts ...client.CallOption) (Payment_PingPongService, error) {
-	req := c.c.NewRequest(c.name, "Payment.PingPong", &Ping{})
-	stream, err := c.c.Stream(ctx, req, opts...)
+func (c *paymentService) FindAllPayment(ctx context.Context, in *All, opts ...client.CallOption) (*PaymentAll, error) {
+	req := c.c.NewRequest(c.name, "Payment.FindAllPayment", in)
+	out := new(PaymentAll)
+	err := c.c.Call(ctx, req, out, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &paymentServicePingPong{stream}, nil
-}
-
-type Payment_PingPongService interface {
-	Context() context.Context
-	SendMsg(interface{}) error
-	RecvMsg(interface{}) error
-	Close() error
-	Send(*Ping) error
-	Recv() (*Pong, error)
-}
-
-type paymentServicePingPong struct {
-	stream client.Stream
-}
-
-func (x *paymentServicePingPong) Close() error {
-	return x.stream.Close()
-}
-
-func (x *paymentServicePingPong) Context() context.Context {
-	return x.stream.Context()
-}
-
-func (x *paymentServicePingPong) SendMsg(m interface{}) error {
-	return x.stream.Send(m)
-}
-
-func (x *paymentServicePingPong) RecvMsg(m interface{}) error {
-	return x.stream.Recv(m)
-}
-
-func (x *paymentServicePingPong) Send(m *Ping) error {
-	return x.stream.Send(m)
-}
-
-func (x *paymentServicePingPong) Recv() (*Pong, error) {
-	m := new(Pong)
-	err := x.stream.Recv(m)
-	if err != nil {
-		return nil, err
-	}
-	return m, nil
+	return out, nil
 }
 
 // Server API for Payment service
 
 type PaymentHandler interface {
-	Call(context.Context, *Request, *Response) error
-	Stream(context.Context, *StreamingRequest, Payment_StreamStream) error
-	PingPong(context.Context, Payment_PingPongStream) error
+	AddPayment(context.Context, *PaymentInfo, *PaymentID) error
+	UpdatePayment(context.Context, *PaymentInfo, *Response) error
+	DeletePaymentByID(context.Context, *PaymentID, *Response) error
+	FindPaymentByID(context.Context, *PaymentID, *PaymentInfo) error
+	FindAllPayment(context.Context, *All, *PaymentAll) error
 }
 
 func RegisterPaymentHandler(s server.Server, hdlr PaymentHandler, opts ...server.HandlerOption) error {
 	type payment interface {
-		Call(ctx context.Context, in *Request, out *Response) error
-		Stream(ctx context.Context, stream server.Stream) error
-		PingPong(ctx context.Context, stream server.Stream) error
+		AddPayment(ctx context.Context, in *PaymentInfo, out *PaymentID) error
+		UpdatePayment(ctx context.Context, in *PaymentInfo, out *Response) error
+		DeletePaymentByID(ctx context.Context, in *PaymentID, out *Response) error
+		FindPaymentByID(ctx context.Context, in *PaymentID, out *PaymentInfo) error
+		FindAllPayment(ctx context.Context, in *All, out *PaymentAll) error
 	}
 	type Payment struct {
 		payment
@@ -194,91 +140,22 @@ type paymentHandler struct {
 	PaymentHandler
 }
 
-func (h *paymentHandler) Call(ctx context.Context, in *Request, out *Response) error {
-	return h.PaymentHandler.Call(ctx, in, out)
+func (h *paymentHandler) AddPayment(ctx context.Context, in *PaymentInfo, out *PaymentID) error {
+	return h.PaymentHandler.AddPayment(ctx, in, out)
 }
 
-func (h *paymentHandler) Stream(ctx context.Context, stream server.Stream) error {
-	m := new(StreamingRequest)
-	if err := stream.Recv(m); err != nil {
-		return err
-	}
-	return h.PaymentHandler.Stream(ctx, m, &paymentStreamStream{stream})
+func (h *paymentHandler) UpdatePayment(ctx context.Context, in *PaymentInfo, out *Response) error {
+	return h.PaymentHandler.UpdatePayment(ctx, in, out)
 }
 
-type Payment_StreamStream interface {
-	Context() context.Context
-	SendMsg(interface{}) error
-	RecvMsg(interface{}) error
-	Close() error
-	Send(*StreamingResponse) error
+func (h *paymentHandler) DeletePaymentByID(ctx context.Context, in *PaymentID, out *Response) error {
+	return h.PaymentHandler.DeletePaymentByID(ctx, in, out)
 }
 
-type paymentStreamStream struct {
-	stream server.Stream
+func (h *paymentHandler) FindPaymentByID(ctx context.Context, in *PaymentID, out *PaymentInfo) error {
+	return h.PaymentHandler.FindPaymentByID(ctx, in, out)
 }
 
-func (x *paymentStreamStream) Close() error {
-	return x.stream.Close()
-}
-
-func (x *paymentStreamStream) Context() context.Context {
-	return x.stream.Context()
-}
-
-func (x *paymentStreamStream) SendMsg(m interface{}) error {
-	return x.stream.Send(m)
-}
-
-func (x *paymentStreamStream) RecvMsg(m interface{}) error {
-	return x.stream.Recv(m)
-}
-
-func (x *paymentStreamStream) Send(m *StreamingResponse) error {
-	return x.stream.Send(m)
-}
-
-func (h *paymentHandler) PingPong(ctx context.Context, stream server.Stream) error {
-	return h.PaymentHandler.PingPong(ctx, &paymentPingPongStream{stream})
-}
-
-type Payment_PingPongStream interface {
-	Context() context.Context
-	SendMsg(interface{}) error
-	RecvMsg(interface{}) error
-	Close() error
-	Send(*Pong) error
-	Recv() (*Ping, error)
-}
-
-type paymentPingPongStream struct {
-	stream server.Stream
-}
-
-func (x *paymentPingPongStream) Close() error {
-	return x.stream.Close()
-}
-
-func (x *paymentPingPongStream) Context() context.Context {
-	return x.stream.Context()
-}
-
-func (x *paymentPingPongStream) SendMsg(m interface{}) error {
-	return x.stream.Send(m)
-}
-
-func (x *paymentPingPongStream) RecvMsg(m interface{}) error {
-	return x.stream.Recv(m)
-}
-
-func (x *paymentPingPongStream) Send(m *Pong) error {
-	return x.stream.Send(m)
-}
-
-func (x *paymentPingPongStream) Recv() (*Ping, error) {
-	m := new(Ping)
-	if err := x.stream.Recv(m); err != nil {
-		return nil, err
-	}
-	return m, nil
+func (h *paymentHandler) FindAllPayment(ctx context.Context, in *All, out *PaymentAll) error {
+	return h.PaymentHandler.FindAllPayment(ctx, in, out)
 }
