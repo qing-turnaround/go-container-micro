@@ -152,4 +152,12 @@
 ### 开发
 1. 快速构建初始代码
 * docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:latest new payment
-3. fgds 
+
+2. 编写[payment.proto](./payment/proto/payment/payment.proto)来快速生成代码
+
+3. 编写[payment/domain/](./payment/domain)来完成完善领域模型
+
+4. 编写[Handle](payment/handler/payment.go)要暴露的服务
+
+5. 编写[main.go](payment/main.go)
+
