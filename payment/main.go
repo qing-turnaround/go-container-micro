@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 
 	"github.com/jinzhu/gorm"
@@ -56,7 +55,6 @@ func main() {
 	db.SingularTable(true)
 	// 初始化表 只执行一次
 	// repository.NewPaymentRepository(db).InitTable()
-	zap.L().Error("测试呀", zap.Error(errors.New("我试试zap")))
 
 	// New Service
 	service := micro.NewService(
