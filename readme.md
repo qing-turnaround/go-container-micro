@@ -149,5 +149,11 @@
 * Beats：轻量级日志收集处理工具
   * Filebeat：日志文件（收集文件数据）
 
+<<<<<<< HEAD
   
 >>>>>>> ef23e3529e50fd62a838e999160427f42e56879f
+=======
+### 开发
+1. 1. 快速构建初始代码
+* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:latest new payment
+>>>>>>> 6514742d76bf4fddd8e193b7d47ec64c42157cc1
