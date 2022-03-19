@@ -25,6 +25,7 @@ require (
 	github.com/miekg/dns v1.1.27 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mitchellh/mapstructure v1.1.2 // indirect
+	github.com/natefinch/lumberjack v2.0.0+incompatible // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/oxtoacart/bpool v0.0.0-20190530202638-03653db5a59c // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
@@ -37,9 +38,12 @@ require (
 	github.com/uber/jaeger-lib v2.4.1+incompatible // indirect
 	github.com/xing-you-ji/go-container-micro/cart v0.0.0-20220315164936-421a72a5f07b // indirect
 	github.com/xing-you-ji/go-container-micro/category v0.0.0-20220315164936-421a72a5f07b // indirect
-	github.com/xing-you-ji/go-container-micro/common v0.0.0-20220317125945-7fb0874f7811 // indirect
+	github.com/xing-you-ji/go-container-micro/common v0.0.0-20220319135804-ce636087d66f // indirect
 	github.com/xing-you-ji/go-container-micro/product v0.0.0-20220315141205-e079180f0465 // indirect
 	go.uber.org/atomic v1.5.0 // indirect
+	go.uber.org/multierr v1.3.0 // indirect
+	go.uber.org/tools v0.0.0-20190618225709-2cfd321de3ee // indirect
+	go.uber.org/zap v1.13.0 // indirect
 	golang.org/x/crypto v0.0.0-20200510223506-06a226fb4e37 // indirect
 	golang.org/x/lint v0.0.0-20191125180803-fdd1cda4f05f // indirect
 	golang.org/x/net v0.0.0-20200520182314-0ba52f642ac2 // indirect
@@ -48,4 +52,5 @@ require (
 	golang.org/x/tools v0.0.0-20191216173652-a0e659d51361 // indirect
 	google.golang.org/protobuf v1.26.0 // indirect
 	gopkg.in/yaml.v2 v2.2.4 // indirect
+	honnef.co/go/tools v0.0.1-2019.2.3 // indirect
 )

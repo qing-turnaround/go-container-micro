@@ -10,6 +10,7 @@ type IPaymentDataService interface {
 	DeletePayment(int64) error
 	UpdatePayment(*model.Payment) error
 	FindPaymentByID(int64) (*model.Payment, error)
+	FindAllPayment() ([]model.Payment, error)
 }
 
 // NewPaymentDataService 创建
@@ -39,4 +40,8 @@ func (u *PaymentDataService) UpdatePayment(payment *model.Payment) (err error) {
 // FindPaymentByID 查找
 func (u *PaymentDataService) FindPaymentByID(paymentID int64) (payment *model.Payment, err error) {
 	return u.PaymentRepository.FindPaymentByID(paymentID)
+}
+
+func (u *PaymentDataService) FindAllPayment() ([]model.Payment, error) {
+	return u.PaymentRepository.FindAll()
 }
