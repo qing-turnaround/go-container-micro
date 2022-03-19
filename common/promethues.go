@@ -13,7 +13,7 @@ func Promethues(port int) {
 	http.Handle("/metrics", promhttp.Handler())
 	// 启动web服务
 	go func() {
-		err := http.ListenAndServe(fmt.Sprintf("%s:%d", "127.0.0.1", port), nil)
+		err := http.ListenAndServe(fmt.Sprintf("%s:%d", "0.0.0.0", port), nil)
 		if err != nil {
 			log.Fatal("启动失败")
 		}

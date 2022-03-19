@@ -134,5 +134,20 @@
 
 6. 编写[docker-compose中的一些配置文件](docker-compose)
 
+<<<<<<< HEAD
 7. 通过docker-compose启动服务，测试prometheus和grafana
 * grafana默认登陆账号密码均为admin
+=======
+7. 通过docker-compose运行容器，启动prometheus和grafana
+
+## 微服务日志系统
+
+### ELK日志系统（Elasticsearch + Logstash + Kibana，Beats）
+* Elasticsearch：分布式搜索引擎，提供搜集、分析、存储数据三大功能
+* Logstash：日志的收集、分析、过滤日志
+* Kibana：提供Web界面，帮助汇总、分析、搜索数据
+* Beats：轻量级日志收集处理工具
+  * Filebeat：日志文件（收集文件数据）
+
+  
+>>>>>>> ef23e3529e50fd62a838e999160427f42e56879f
