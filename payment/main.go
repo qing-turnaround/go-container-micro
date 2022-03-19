@@ -1,15 +1,18 @@
 package main
 
 import (
-	log "github.com/micro/go-micro/v2/logger"
 	"github.com/micro/go-micro/v2"
-	"payment/handler"
-	"payment/subscriber"
+	log "github.com/micro/go-micro/v2/logger"
+	"github.com/xing-you-ji/go-container-micro/common"
+	"github.com/xing-you-ji/go-container-micro/payment/handler"
 
-	payment "payment/proto/payment"
+	payment "github.com/xing-you-ji/go-container-micro/payment/proto/payment"
 )
 
 func main() {
+	// 初始化zap
+	common.Init()
+
 	// New Service
 	service := micro.NewService(
 		micro.Name("go.micro.service.payment"),
