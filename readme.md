@@ -84,7 +84,6 @@
 * 链路追踪数据写入的过程中可以加入kafaka缓冲压力
 * 可以通过链路追踪发现是否有服务的循环调用
 
-
 ## 熔断，限流，负载均衡
 
 ### 代码开发
@@ -161,3 +160,5 @@
 
 5. 编写[main.go](payment/main.go)
 
+6. 部署日志系统
+* 安装filebeat`https://www.elastic.co/guide/en/beats/filebeat/8.1/setup-repositories.html#_yum`
