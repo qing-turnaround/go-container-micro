@@ -72,7 +72,7 @@ func main() {
 	// Initialise service
 	service.Init()
 
-	paymentService := payment.NewPaymentService("go.micro.server.payment",
+	paymentService := payment.NewPaymentService("go.micro.service.payment",
 		service.Client())
 
 	// Register Handler
