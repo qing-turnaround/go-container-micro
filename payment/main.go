@@ -46,7 +46,7 @@ func main() {
 	defer io.Close()
 
 	// 暴露监控地址
-	common.Promethues(9092)
+	common.Promethues(9292)
 
 	// 数据库设置
 	mysqlInfo := common.GetMysqlConfigFromConsul(consulConfig, "mysql")

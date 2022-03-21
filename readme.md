@@ -166,6 +166,10 @@
 * 编写[handler](./paymentApi/handler/paymentApi.go)来暴露api服务
 * 编写[main.go](./paymentApi/main.go)
 
-7. 部署日志系统
+7. 运行测试
+* docker run --rm -p 8090:8080 zhugeqing/micro:2.93 --registry=consul --registry_address=172.16.144.76:8500 api --handler=api
+* 运行payment和paymentApi
+
+8. 部署日志系统
 * 安装filebeat`https://www.elastic.co/guide/en/beats/filebeat/8.1/setup-repositories.html#_yum`
 
