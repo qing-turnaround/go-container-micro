@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package go.micro.api.paymentApi;
 
-import "proto/imports/api.proto";
 
 service PaymentApi {
 	rpc Call(go.api.Request) returns (go.api.Response) {}
