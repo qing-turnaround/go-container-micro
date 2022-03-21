@@ -32,7 +32,7 @@ type UserRepository struct {
 
 // InitTable 初始化数据表
 func (u *UserRepository) InitTable() error {
-	return u.mysqlDb.Set("gorm:table_options", "ENGINE=InnoDB DEFAULT CHARSET=utf8").
+	return u.mysqlDb.Set("gorm:table_options", "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4").
 		CreateTable(&model.User{}).Error
 }
 

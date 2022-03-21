@@ -25,8 +25,8 @@
 * docker run -d -p 6666:6666 zhugeqing/consul:latest
 
 2. 快速构建初始代码
-* docker pull zhugeqing/micro:latest
-* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:latest new category
+* docker pull zhugeqing/micro:2.93
+* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:2.93 new category
 
 3. 编写[category.proto](./category/proto/category/category.proto)来快速生成代码
 
@@ -66,7 +66,7 @@
 > 16686协议为HTTP，所属模块为query，功能为客户端前端界面展示接口
 
 2. 快速构建初始代码
-* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:latest new product
+* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:2.93 new product
 
 3. 编写[product.proto](./product/proto/product/product.proto)来快速生成代码
 
@@ -89,7 +89,7 @@
 ### 代码开发
 
 1. 快速构建初始代码
-* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:latest new cart
+* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:2.93 new cart
 
 2. 编写[cart.proto](./cart/proto/cart/cart.proto)来快速生成代码
 
@@ -103,7 +103,7 @@
 * go get github.com/micro/go-pligins/wrapper/ratelimiter/uber/v2
 
 7. 创建Api网关
-* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:latest new --type=api cartApi
+* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:2.93 new --type=api cartApi
 * 编写[cartApi.proto](./cartApi/proto/cartApi/cartApi.proto)来快速生成代码
 * 编写[handler](./cartApi/handler/cartApi.go)来暴露api服务
 * 编写[main.go](./cartApi/main.go)
@@ -121,7 +121,7 @@
 ### 开发
 
 1. 快速构建初始代码
-* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:latest new order
+* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:2.93 new order
 
 2. 编写[order.proto](./order/proto/order/order.proto)来快速生成代码
 
@@ -150,7 +150,7 @@
   
 ### 开发
 1. 快速构建初始代码
-* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:latest new payment
+* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:2.93 new payment
 
 2. 编写[payment.proto](./payment/proto/payment/payment.proto)来快速生成代码
 
@@ -160,5 +160,12 @@
 
 5. 编写[main.go](payment/main.go)
 
-6. 部署日志系统
+6. 创建Api网关
+* docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:2.93 new --type=api paymentApi
+* 编写[cartApi.proto](./cartApi/proto/cartApi/cartApi.proto)来快速生成代码
+* 编写[handler](./cartApi/handler/cartApi.go)来暴露api服务
+* 编写[main.go](./cartApi/main.go)
+
+7. 部署日志系统
 * 安装filebeat`https://www.elastic.co/guide/en/beats/filebeat/8.1/setup-repositories.html#_yum`
+
