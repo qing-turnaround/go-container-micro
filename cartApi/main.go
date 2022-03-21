@@ -70,7 +70,8 @@ func main() {
 		service.Client())
 
 	// // Register Handler
-	if err := cartApi.RegisterCartApiHandler(service.Server(), &handler.CartApi{CartService: cartService}); err != nil {
+	if err := cartApi.RegisterCartApiHandler(service.Server(),
+		&handler.CartApi{CartService: cartService}); err != nil {
 		log.Error(err)
 	}
 

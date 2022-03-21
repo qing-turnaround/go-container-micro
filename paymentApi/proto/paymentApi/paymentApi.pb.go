@@ -12,11 +12,14 @@ It has these top-level messages:
 	Request
 	Response
 */
-package go_micro_api_paymentApi
+package paymentApi
 
-import proto "github.com/golang/protobuf/proto"
-import fmt "fmt"
-import math "math"
+import (
+	fmt "fmt"
+	math "math"
+
+	proto "github.com/golang/protobuf/proto"
+)
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal

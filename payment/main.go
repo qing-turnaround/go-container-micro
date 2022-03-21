@@ -45,6 +45,9 @@ func main() {
 	}
 	defer io.Close()
 
+	// 暴露监控地址
+	common.Promethues(9092)
+
 	// 数据库设置
 	mysqlInfo := common.GetMysqlConfigFromConsul(consulConfig, "mysql")
 	db, err := gorm.Open("mysql",

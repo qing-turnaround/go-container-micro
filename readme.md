@@ -162,9 +162,9 @@
 
 6. 创建Api网关
 * docker run --rm -v $(pwd):$(pwd) -w $(pwd) zhugeqing/micro:2.93 new --type=api paymentApi
-* 编写[cartApi.proto](./cartApi/proto/cartApi/cartApi.proto)来快速生成代码
-* 编写[handler](./cartApi/handler/cartApi.go)来暴露api服务
-* 编写[main.go](./cartApi/main.go)
+* 编写[cartApi.proto](./paymentApi/proto/paymentApi/paymentApi.proto)来快速生成代码
+* 编写[handler](./paymentApi/handler/paymentApi.go)来暴露api服务
+* 编写[main.go](./paymentApi/main.go)
 
 7. 部署日志系统
 * 安装filebeat`https://www.elastic.co/guide/en/beats/filebeat/8.1/setup-repositories.html#_yum`
