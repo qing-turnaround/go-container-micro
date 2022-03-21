@@ -4,7 +4,8 @@ package go.micro.api.paymentApi;
 
 
 service PaymentApi {
-
+	// 直接退款功能
+	rpc PayPalRefund(Request) returns (Response) {}
 }
 
 // Pair 键值
