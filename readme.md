@@ -169,7 +169,9 @@
 7. 运行测试
 * docker run --rm -p 8090:8080 zhugeqing/micro:2.93 --registry=consul --registry_address=172.16.144.76:8500 api --handler=api
 * 运行payment和paymentApi
-
-8. 部署日志系统
+* curl http://120.79.17.230:8080/paymentApi/PayPalRefund?payment_id=1&refund_id=zhugeqing&money=100
+> 提前在表中插入字段，payment_sid为payPal default app secret
+* 使用sandbo 默认个人账号登陆https://www.sandbox.paypal.com/myaccount/summary?intl=0 查看收款
+9. 部署日志系统
 * 安装filebeat`https://www.elastic.co/guide/en/beats/filebeat/8.1/setup-repositories.html#_yum`
 
