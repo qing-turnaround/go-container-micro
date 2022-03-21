@@ -11,6 +11,7 @@ import (
 	"github.com/micro/go-plugins/wrapper/monitoring/prometheus/v2"
 	ratelimit "github.com/micro/go-plugins/wrapper/ratelimiter/uber/v2"
 	opentracing2 "github.com/micro/go-plugins/wrapper/trace/opentracing/v2"
+	"github.com/opentracing/opentracing-go"
 	"github.com/xing-you-ji/go-container-micro/common"
 	"github.com/xing-you-ji/go-container-micro/payment/domain/repository"
 	server2 "github.com/xing-you-ji/go-container-micro/payment/domain/service"
@@ -44,9 +45,10 @@ func main() {
 		zap.L().Error("NewTracer error: ", zap.Error(err))
 	}
 	defer io.Close()
+	opentracing.SetGlobalTracer(t)
 
 	// 暴露监控地址
-	common.Promethues(9092)
+	common.Promethues(9192) // 每次加100，防止一致
 
 	// 数据库设置
 	mysqlInfo := common.GetMysqlConfigFromConsul(consulConfig, "mysql")
@@ -67,7 +69,7 @@ func main() {
 		// 注册中心
 		micro.Registry(consulRegistry),
 		// 链路追踪
-		micro.WrapHandler(opentracing2.NewHandlerWrapper(t)),
+		micro.WrapHandler(opentracing2.NewHandlerWrapper(opentracing.GlobalTracer())),
 		// 限流
 		micro.WrapHandler(ratelimit.NewHandlerWrapper(1000)),
 		// 加载监控

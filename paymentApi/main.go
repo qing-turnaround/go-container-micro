@@ -54,7 +54,7 @@ func main() {
 	}()
 
 	// 监控
-	common.Promethues(9092)
+	common.Promethues(9292)
 
 	// New Service
 	service := micro.NewService(
