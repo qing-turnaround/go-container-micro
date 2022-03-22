@@ -172,6 +172,11 @@
 * curl http://120.79.17.230:8080/paymentApi/PayPalRefund?payment_id=1&refund_id=zhugeqing&money=100
 > 提前在表中插入字段，payment_sid为payPal default app secret
 * 使用sandbo 默认个人账号登陆https://www.sandbox.paypal.com/myaccount/summary?intl=0 查看收款
+
+8. 幂等性
+> 对同一个系统，使用同样的条件一次或者是多次请求系统资源产生的影响是一致的
+> 实现方式：加乐观锁，使用去重索引，token
+
 9. 部署日志系统
 * 安装filebeat`https://www.elastic.co/guide/en/beats/filebeat/8.1/setup-repositories.html#_yum`
-
+* docker-compose -f docker-compose.yml up -d 运行ELK配置文件
